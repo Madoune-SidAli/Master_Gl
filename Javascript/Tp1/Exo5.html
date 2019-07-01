@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Exo5</title>
+    <script type="text/javascript" ></script>
+  </head>
+  <body>
+    <div>
+        <form id="myForm" onsubmit="return validate();">
+            <label for="myField">Taper un text :</label>
+            <input type="text" id="myField" size="45">
+            <input type="submit" value="Envoyer"><br><br>
+            <span id="Error" style="color: red;"> </span>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function validate() {
+            if(document.getElementById('myField').value == '') {
+
+              document.getElementById('Error').innerHTML = 'Le champ est vide ';
+              alert('remplir le champ svp!');
+              return false;
+
+            } 
+            else {
+              var s = document.getElementById('myField').value;
+              document.getElementById('Error').innerHTML = '';
+              alert("Message Envoyé avec succé! : "+s);
+              return true;
+            }
+          }
+    </script>
+  </body>
+</html>
