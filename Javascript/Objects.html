@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+	function creerNouvelleMembre(id,name,grade) {
+	  var membre = {};
+	  membre.id = id;
+	  membre.name = name;
+	  membre.grade = grade;
+	  membre.salutation = function() {
+	    document.write(this.id + " " + this.name + " " + this.grade);
+	  };
+	  return membre;
+	}
+
+	var membre = creerNouvelleMembre(1,'madoune','Student');
+	membre.salutation();
+</script>
+</body>
+</html>
