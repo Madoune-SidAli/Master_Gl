@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Create Object </title>
+</head>
 <body>
 
-<script>
-	function createNewMembre(id,name,grade) {
-	  var membre = {};
-	  membre.id = id;
-	  membre.name = name;
-	  membre.grade = grade;
-	  membre.salutation = function() {
-	    document.write(this.id + " " + this.name + " " + this.grade);
-	  };
-	  return membre;
-	}
+	<script type="text/javascript">
+		function createNewMembre(id,name,grade) {
+		  var membre = {};
+		  membre.id = id;
+		  membre.name = name;
+		  membre.grade = grade;
+		  membre.salutation = function() {
+		    document.write(this.id + " " + this.name + " " + this.grade +"<br>");
+		  };
+		  return membre;
+		}
 
-	var membre = createNewMembre(1,'madoune','Student');
-	membre.salutation();
-</script>
+		var membre = createNewMembre(1,'Madoune','Student');
+		var membre1 = createNewMembre(2,'Sid Ali','Student');
+		var team={
+			membre,
+			membre1,
+		};
+		team.membre.salutation();
+		team.membre1.salutation();
+	</script>
 </body>
 </html>

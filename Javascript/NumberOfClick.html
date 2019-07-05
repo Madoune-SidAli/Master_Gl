@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Counte numbre of Clicks</title>
+</head>
+<body>
+	<form>
+	   <input type="text" id="number" value="0"/>
+	   <input type="button" onclick="clickCounter()" value="Increment Value" />
+	</form>
+
+	<script type="text/javascript">
+
+		function clickCounter()
+		{
+		    var value = parseInt(document.getElementById('number').value, 10);
+		    value = isNaN(value) ? 0 : value;
+		    value++;
+		    document.getElementById('number').value = value;
+		}
+		
+	</script>
+
+</body>
+</html>

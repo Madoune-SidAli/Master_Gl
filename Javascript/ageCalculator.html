@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript program to calculate age</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// dob = Date of birth
+
+		//First sol
+		function calculate_age(dob) { 
+		    var diff_ms = Date.now() - dob.getTime();
+		    var age_dt = new Date(diff_ms); 
+		  
+		    return Math.abs(age_dt.getUTCFullYear() - 1970);
+		}
+
+		document.write(calculate_age(new Date(1982, 11, 4))+"<br>");
+
+		document.write(calculate_age(new Date(1962, 1, 1))+"<br>");
+
+		//Second Sol
+		var dob = '19800810';
+		var year = Number(dob.substr(0, 4));
+		var month = Number(dob.substr(4, 2)) - 1;
+		var day = Number(dob.substr(6, 2));
+		var today = new Date();
+		var age = today.getFullYear() - year;
+		if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+		  age--;
+		}
+		document.write(age+"<br>");
+
+
+		//Third Sol
+		function getAge(DOB) {
+		    var today = new Date();
+		    var birthDate = new Date(DOB);
+		    var age = today.getFullYear() - birthDate.getFullYear();
+		    var m = today.getMonth() - birthDate.getMonth();
+		    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		        age = age - 1;
+		    }
+
+		    return age;
+		}
+
+		document.write(getAge("8/31/1995"));
+
+
+	</script>
+</body>
+</html>	

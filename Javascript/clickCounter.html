@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click Counter </title>
+</head>
+<body>
+	<a href="" onclick="gestionClic();return false;">Clicker ici </a>
+	<span id="nbrclick"></span>
+
+	<script type="text/javascript">
+		var http;
+
+		function CreateRequestObject () {
+			var http;
+			if (window.XMLHttpRequest){
+				http = new XMLHttpRequest();
+
+			}
+			else if (window.ActiveXObject){
+				http = new ActiveXObject("Microsoft.XMLHTTP")
+			}
+			return http;
+		}
+
+
+		function gestionClic() {
+			document.getElemntById("nbrclick").InnerHTML='<em>Chargement ... </em>';
+			http= CreateRequestObject();
+			http.open('get','.exmple_1-server.php5',true);
+			http.onreadystateChange() = handleAJAXReturn ;
+			http.Send(null);
+		}
+
+		function handleAJAXReturn() {
+			if (http.readyState== 4){
+				if (http.status== 200){
+					document.getElemntById("nbrclick").InnerHTML=http.reponseText;
+				}
+				else{
+					document.getElemntById("nbrclick").InnerHTML='<strong> N/A </strong>';
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>
